@@ -12,6 +12,8 @@ export default function Game() {
   const [upleft, setUpleft] = useState(false);
   const [downright, setDownright] = useState(false);
   const [downleft, setDownleft] = useState(false);
+  const [posLeft, setPosLeft] = useState({x: 0, y: 0})
+  const [posRight, setPosRight] = useState({x: 0, y: 0})
   const { user, score, setScore } = useContext(UserContext);
   const navigate = useNavigate();
   const halfbeat = 60000 / 81;
@@ -76,8 +78,8 @@ export default function Game() {
 
   return (
     <div className={styles.container}>
-      <HandDetection />
       <audio src={beethoven} autoPlay />
+      <HandDetection setPosLeftHand={setPosLeft} setPosRightHand={setPosRight}/>
       <div className={styles.gameContainerContainer}>
         {upleft && (
           <div className={styles.gameContainerUL}>
@@ -103,9 +105,9 @@ export default function Game() {
         )}
       </div>
 
-      <button onClick={() => setGameOver(!gameOver)}>
+      {/* <button onClick={() => setGameOver(!gameOver)}>
         Simulateur de partie finie
-      </button>
+      </button> */}
     </div>
   );
 }

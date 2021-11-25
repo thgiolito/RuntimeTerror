@@ -6,10 +6,10 @@ import Webcam from 'react-webcam'
 
 import style from '../HandDetection/HandDetection.module.css'
 
-function HandDetection() {
+function HandDetection({ setPosLeftHand, setPosRightHand }) {
   const webcamRef = useRef(null)
   const canvasRef = useRef(null)
-  const [pos, setPos] = useState({x: 0, y: 0})
+  
   
   let camera = null
 
@@ -38,11 +38,8 @@ function HandDetection() {
                        {color: '#00FF00', lineWidth: 5});
         draw.drawLandmarks(canvasCtx, landmarks, {color: '#FF0000', lineWidth: 2});
       }
-      if(results.multiHandLandmarks[0]){
-        setPos({
-          x: results.multiHandLandmarks[0][20].x,
-          y: results.multiHandLandmarks[0][20].y 
-        })
+      for(let i = 0; i < results.multiHandedness.length; i++){
+        console.log(results.multiHandedness[i].label);
       }
     }
     canvasCtx.restore()
@@ -56,6 +53,7 @@ function HandDetection() {
     });
 
     hand.setOptions({
+      selfieMode: true,
       maxNumHands: 2,
       modelComplexity:1,
       minDetectionConfidence: 0.5,
@@ -85,10 +83,8 @@ function HandDetection() {
           ref={webcamRef}
           style={{
             display: 'none',
-            textAlign: "center",
-            zindex: 9,
-            width: 640,
-            height: 480,
+            width: 1280,
+            height: 720,
           }}
         />
       <canvas
