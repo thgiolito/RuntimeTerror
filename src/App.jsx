@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Accueil from "./screens/Accueil/Accueil";
 import Footer from "./components/Footer/Footer";
@@ -11,10 +12,12 @@ import "./App.css";
 function App() {
   return (
     <div className="App">
-      <Header />
-      <Accueil />
-      <Game />
-      <Score />
+      <BrowserRouter>
+        <Header />
+        <Accueil />
+        <Game />
+        <Score />
+      </BrowserRouter>
       <Footer />
     </div>
   );
