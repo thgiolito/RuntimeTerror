@@ -3,7 +3,7 @@
 .container {
   color: var(--pink);
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-items: center;
   width: 100vw;
   height: 12vh;
