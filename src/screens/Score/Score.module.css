@@ -1,0 +1,5 @@
+@import "../../Fonts.css";
+
+.container {
+    color: var(--blue);
+}
