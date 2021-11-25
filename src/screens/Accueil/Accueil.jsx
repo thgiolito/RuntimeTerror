@@ -20,22 +20,33 @@ export default function Accueil() {
     setUser(name);
   }
   return (
+    <div>
     <div className={styles.container}>
       <h2>Welcome to RUNTIME TERROR !</h2>
       <p>RUNTIME TERROR it's a music rhythm video game. The game features a hand-shaped controller that the player uses to simulate playing and dancing music.</p>
-      <img src={Logo} alt="logo" className={styles.logo} />
+     </div>
 
+     <div className={styles.container} id="LogoHome" >
+     <img src={Logo} alt="logo" className={styles.logo} />
+     </div>
+
+     <div className={styles.container} id="start">
       <h3> BEFORE STARTING TO PLAY...</h3>
       <p> Be wary of you environment, establish safe distances and take a few deep breathes! </p>
       
-      <h3> Are you ready to dance Music? </h3>
-      <p> Welcome {user} ! </p>
+      <h3> Are you ready to dance? </h3>
       <h4> Enter your name :</h4>
       <form>
       <input onChange={handleNameChange} type="text" placeholder="My name"></input>
       <button onClick={handleClickName} type="submit" >Send !</button>
       </form>
+      <h3> Welcome {user} ! </h3>
+      </div>
+      
+      <div className={styles.container} id="camera">
       <h3>Make sure your camera works</h3>
+      </div>
+
       <div className={styles.videoContainer}>
         <Webcam audio={false} height={375} width={500} />
       </div>
