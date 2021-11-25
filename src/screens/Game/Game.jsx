@@ -15,7 +15,6 @@ export default function Game() {
 
   return (
     <div className={styles.container}>
-      <h2>Salut, je suis le jeu</h2>
       <button onClick={() => setGameOver(!gameOver)}>
         Simulateur de partie finie
       </button>
