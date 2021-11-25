@@ -2,11 +2,15 @@
 
 .container {
     color: var(--pink);
-    font-family: var(--main-font-family);
     background-color: var(--lighter-blue);
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
     width: 100vw;
-    font-size: x-large;
+    height: 10vh;
+}
+
+.logo {
+    height: 10vh;
+    width: auto;
 }

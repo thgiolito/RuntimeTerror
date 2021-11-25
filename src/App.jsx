@@ -20,7 +20,6 @@ function App() {
           <Route path="/score" element={<Score />} />
         </Routes>
       </BrowserRouter>
-      <Footer />
     </div>
   );
 }
