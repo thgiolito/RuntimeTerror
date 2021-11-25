@@ -1,0 +1,25 @@
+.background {
+    min-height: 100vh;
+    min-width: 100vw;
+    height: auto;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-image: url("../src/assets/background.jpg");
+    background-repeat: no-repeat;
+    background-size: auto;
+    opacity: 0.2;
+    z-index:-1;
+}
+
+.dark {
+    height: 100vh;
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: black;
+    background-size: auto;
+    z-index:-2;
+}
