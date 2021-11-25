@@ -24,6 +24,7 @@
     transition: all 0.2s;
     background-color: #3a0ca3;
   }
+  
   .gameButton:hover {
     color: #3a0ca3;
     background-color: white;

@@ -32,7 +32,7 @@ export default function Accueil() {
 
      <div className={styles.container} id="start">
       <h3> BEFORE STARTING TO PLAY...</h3>
-      <p> Be wary of you environment, establish safe distances and take a few deep breathes! </p>
+      <p> Be wary of your environment, establish safe distances and take a few deep breathes! </p>
       
       <h3> Are you ready to dance? </h3>
       <h4> Enter your name :</h4>
