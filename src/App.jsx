@@ -1,10 +1,10 @@
 import { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Accueil from "./screens/Accueil/Accueil";
 import Footer from "./components/Footer/Footer";
-import Game from "./screens/Game/Game";
 import Header from "./components/Header/Header";
+import Accueil from "./screens/Accueil/Accueil";
+import Game from "./screens/Game/Game";
 import Score from "./screens/Score/Score";
 
 import "./App.css";
@@ -14,9 +14,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Header />
-        <Accueil />
-        <Game />
-        <Score />
+        <Routes>
+          <Route path="/" element={<Accueil />} />
+          <Route path="/game" element={<Game />} />
+          <Route path="/score" element={<Score />} />
+        </Routes>
       </BrowserRouter>
       <Footer />
     </div>
