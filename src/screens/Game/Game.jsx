@@ -7,6 +7,13 @@ export default function Game() {
   const [gameOver, setGameOver] = useState(false);
   const navigate = useNavigate()
 
+  // useEffect(() => {
+  //   const timer = setTimeout(() => {
+  //     setCount('Timeout called!');
+  //   }, 1000);
+  //   return () => clearTimeout(timer);
+  // }, []);
+
   useEffect(() => {
       if (gameOver) {
           navigate("/score")
@@ -15,6 +22,7 @@ export default function Game() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.timer}></div>
       <button onClick={() => setGameOver(!gameOver)}>
         Simulateur de partie finie
       </button>
