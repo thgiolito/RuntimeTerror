@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
+import HandDetection from "../../components/HandDetection/HandDetection";
 
 import beethoven from "../../assets/beethovenvirus.mp3";
 import UserContext from "../../contexts/usercontext";
@@ -75,6 +76,7 @@ export default function Game() {
 
   return (
     <div className={styles.container}>
+      <HandDetection />
       <audio src={beethoven} autoPlay />
       <div className={styles.gameContainerContainer}>
         {upleft && (
