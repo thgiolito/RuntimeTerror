@@ -7,7 +7,6 @@ import UserContext from "../../contexts/usercontext";
 import styles from "./Game.module.css";
 
 export default function Game() {
-  const [gameOver, setGameOver] = useState(false);
   const [upright, setUpright] = useState(false);
   const [upleft, setUpleft] = useState(false);
   const [downright, setDownright] = useState(false);
@@ -16,9 +15,26 @@ export default function Game() {
   const navigate = useNavigate();
   const halfbeat = 60000 / 81;
 
+  // UR 0
+  // UL 1
+  // DR 2
+  // DL 3
+  // LL 4
+  // RR 5
+
+  let chore = [
+    0, 1, 0, 1, 2, 3, 2, 3, 4, 5, 4, 5, 0, 1, 0, 1, 2, 3, 2, 3, 4, 5, 4, 5, 0,
+    1, 0, 1, 2, 3, 2, 3, 4, 5, 4, 5, 0, 1, 0, 1, 2, 3, 2, 3, 4, 5, 4, 5, 0, 1,
+    0, 1, 2, 3, 2, 3, 4, 5, 4, 5, 0, 1, 0, 1, 2, 3, 2, 3, 4, 5, 4, 5, 0, 1, 0,
+    1, 2, 3, 2, 3, 4, 5, 4, 5, 0, 1, 0, 1, 2, 3, 2, 3, 4, 5, 4, 5, 0, 1, 0, 1,
+    2, 3, 2, 3, 4, 5, 4, 5, 0, 1, 0, 1, 2, 3, 2, 3, 4, 5, 4, 5, 0, 1, 0, 1, 2,
+    3, 2, 3, 4, 5, 4, 5, 0, 1, 0, 1, 2, 3, 2, 3, 4, 5, 4, 5,
+  ];
+
+  // let chore = [0, 1, 0, 1, 0, 1, 0, 1, 2, 3, 2, 3, 2, 3, 2, 3, 4, 5, 4, 5];
   useEffect(() => {
     setInterval(() => {
-      let count = Math.floor(Math.random() * 4);
+      let count = chore.shift();
       if (count == 0) {
         setUpleft(false);
         setDownright(false);
@@ -34,26 +50,28 @@ export default function Game() {
         setUpleft(false);
         setDownleft(false);
         setDownright(true);
-      } else {
+      } else if (count == 3) {
         setUpright(false);
         setUpleft(false);
         setDownright(false);
         setDownleft(true);
+      } else if (count == 4) {
+        setUpright(false);
+        setDownright(false);
+        setUpleft(true);
+        setDownleft(true);
+      } else {
+        setUpleft(false);
+        setDownleft(false);
+        setDownright(true);
+        setUpright(true);
       }
+
+      // if (!chore.length) {
+      //   navigate("/score");
+      // }
     }, halfbeat);
   }, []);
-
-  useEffect(() => {
-    if (gameOver) {
-      navigate("/score");
-    }
-  }, [gameOver]);
-
-  const handleEndGame = () => {
-    setGameOver(!gameOver);
-    setScore(600);
-    console.log(score);
-  };
 
   return (
     <div className={styles.container}>
@@ -62,11 +80,13 @@ export default function Game() {
         {upleft && (
           <div className={styles.gameContainerUL}>
             <div className={styles.squareLight}></div>
+            {downleft && <div className={styles.squareLight}></div>}
           </div>
         )}
         {upright && (
           <div className={styles.gameContainerUR}>
             <div className={styles.squareLight}></div>
+            {downright && <div className={styles.squareLight}></div>}
           </div>
         )}
         {downleft && (
