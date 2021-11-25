@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import sampleScore from "./SampleScore";
 import { Link } from "react-router-dom";
 
 import styles from "./Score.module.css";
+import UserContext from "../../contexts/usercontext";
 
 export default function Score() {
   const [podium, setPodium] = useState();
   const [nonPodium, setNonPodium] = useState();
+  const { user, setUser } = useContext(UserContext);
 
   useEffect(() => {
     setPodium(sampleScore.slice(0, 3));
@@ -57,12 +59,14 @@ export default function Score() {
           </div>
         </div>
       )}
+      <div className={styles.options}>
       <Link to="/game">
-        <button>New Game</button>
+        <button className={styles.gameButton}>New Game</button>
       </Link>
       <Link to="/">
-        <button>Main menu</button>
+        <button className={styles.gameButton}>Main menu</button>
       </Link>
+      </div>
     </div>
   );
 }

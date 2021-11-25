@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
 
 import beethoven from "../../assets/beethovenvirus.mp3";
+import UserContext from "../../contexts/usercontext";
 
 import styles from "./Game.module.css";
 
@@ -11,6 +12,8 @@ export default function Game() {
   const [upleft, setUpleft] = useState(false);
   const [downright, setDownright] = useState(false);
   const [downleft, setDownleft] = useState(false);
+  const { user, score, setScore } = useContext(UserContext);
+  const navigate = useNavigate()
 
   const navigate = useNavigate();
   const halfbeat = 60000 / 81;
@@ -47,6 +50,12 @@ export default function Game() {
       navigate("/score");
     }
   }, [gameOver]);
+
+  const handleEndGame = () => {
+    setGameOver(!gameOver);
+    setScore(600);
+    console.log(score);
+  }
 
   return (
     <div className={styles.container}>
