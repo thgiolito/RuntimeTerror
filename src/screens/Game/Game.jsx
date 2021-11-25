@@ -33,7 +33,7 @@ export default function Game() {
     <div className={styles.container}>
       <p> Good luck and have fun, {user} </p>
       <div className={styles.timer}></div>
-      <button onClick={handleEndGame}>
+      <button className={styles.gameButton} onClick={handleEndGame}>
         Simulateur de partie finie
       </button>
     </div>
