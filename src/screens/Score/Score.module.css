@@ -1,5 +1,17 @@
 @import "../../Fonts.css";
 
+.backgroundVideo {
+  position: absolute;
+  width: 104%;
+  left: 50%;
+  top: 50%;
+  height: 103%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -1;
+  overflow: hidden;
+}
+
 .podiumContainer {
   display: flex;
   margin: 1em auto;
@@ -120,5 +132,5 @@
   margin: 2vh;
   display: flex;
   justify-content: center;
-  width: 100%;  
+  width: 100%;
 }
