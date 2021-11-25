@@ -1,0 +1,6 @@
+@import "../../Fonts.css";
+
+.container {
+    color: var(--lighter-blue);
+    font-family: var(--second-font-family);
+}

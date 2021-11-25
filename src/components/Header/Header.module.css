@@ -1,0 +1,6 @@
+@import "../../Fonts.css";
+
+.container {
+    color: var(--pink);
+    font-family: var(--main-font-family);
+}
