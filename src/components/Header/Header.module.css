@@ -2,15 +2,21 @@
 
 .container {
     color: var(--pink);
-    background-color: var(--lighter-blue);
+    background-color: var(--blue-purple);
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-evenly;
     align-items: center;
     width: 100vw;
-    height: 10vh;
+    height: 12vh;
 }
 
 .logo {
     height: 10vh;
     width: auto;
+}
+
+.title {
+    color: white;
+    font-family: var(--main-font-family);
+    font-size: 4em;
 }
