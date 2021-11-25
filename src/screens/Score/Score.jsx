@@ -59,12 +59,14 @@ export default function Score() {
           </div>
         </div>
       )}
+      <div className={styles.options}>
       <Link to="/game">
-        <button>New Game</button>
+        <button className={styles.gameButton}>New Game</button>
       </Link>
       <Link to="/">
-        <button>Main menu</button>
+        <button className={styles.gameButton}>Main menu</button>
       </Link>
+      </div>
     </div>
   );
 }

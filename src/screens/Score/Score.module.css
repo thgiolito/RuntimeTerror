@@ -95,3 +95,30 @@
 .nonPodiumRank {
   margin: 0;
 }
+
+.gameButton {
+  display: inline-block;
+  height: 3rem;
+  padding: 0.2em;
+  border: 0.2em solid white;
+  margin: 0 0.3em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #3a0ca3;
+}
+.gameButton:hover {
+  color: #3a0ca3;
+  background-color: white;
+  border: 0.1em solid #3a0ca3;
+}
+
+.options {
+  margin: 2vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;  
+}

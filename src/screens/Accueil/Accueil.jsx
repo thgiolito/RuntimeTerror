@@ -33,14 +33,14 @@ export default function Accueil() {
       <h4> Enter your name :</h4>
       <form>
       <input onChange={handleNameChange} type="text" placeholder="My name"></input>
-      <button onClick={handleClickName} type="submit" >Send !</button>
+      <button className={styles.gameButton} onClick={handleClickName} type="submit" >Send !</button>
       </form>
       <h3>Make sure your camera works</h3>
       <div className={styles.videoContainer}>
         <Webcam audio={false} height={375} width={500} />
       </div>
       <Link to="/game">
-        <button>New Game</button>
+        <button className={styles.gameButton}>New Game</button>
       </Link>
     </div>
   );
