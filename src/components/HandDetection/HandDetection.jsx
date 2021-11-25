@@ -39,7 +39,17 @@ function HandDetection({ setPosLeftHand, setPosRightHand }) {
         draw.drawLandmarks(canvasCtx, landmarks, {color: '#FF0000', lineWidth: 2});
       }
       for(let i = 0; i < results.multiHandedness.length; i++){
-        console.log(results.multiHandedness[i].label);
+        if (results.multiHandedness[i].label === 'Left') {
+          setPosLeftHand({
+            x: results.multiHandLandmarks[i][11].x,
+            y: results.multiHandLandmarks[i][11].y
+          })
+        } else {
+          setPosRightHand({
+            x: results.multiHandLandmarks[i][11].x,
+            y: results.multiHandLandmarks[i][11].y
+          })
+        }
       }
     }
     canvasCtx.restore()
