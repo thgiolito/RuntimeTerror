@@ -4,6 +4,8 @@ import * as cam from '@mediapipe/camera_utils'
 import * as draw from '@mediapipe/drawing_utils'
 import Webcam from 'react-webcam'
 
+import style from '../HandDetection/HandDetection.module.css'
+
 function HandDetection() {
   const webcamRef = useRef(null)
   const canvasRef = useRef(null)
@@ -12,7 +14,6 @@ function HandDetection() {
   let camera = null
 
   const onResults = (results) => {
-    // const video = webcamRef.current.video;
     const videoWidth = webcamRef.current.video.videoWidth;
     const videoHeight = webcamRef.current.video.videoHeight;
 
@@ -71,23 +72,19 @@ function HandDetection() {
         onFrame: async () => {
           await hand.send({ image: webcamRef.current.video });
         },
-        width: 640,
-        height: 480,
+        width: 1280,
+        height: 720,
       });
       camera.start();
     }
   }, []);
 
   return (
-    <div>
+    <div className={style.HandDetectionContainer}>
       <Webcam
           ref={webcamRef}
           style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
-            right: 0,
+            display: 'none',
             textAlign: "center",
             zindex: 9,
             width: 640,
@@ -98,15 +95,9 @@ function HandDetection() {
           ref={canvasRef}
           className="output_canvas"
           style={{
-            position: "absolute",
-            marginLeft: "auto",
-            marginRight: "auto",
-            left: 0,
-            right: 0,
             textAlign: "center",
-            zindex: 9,
-            width: 640,
-            height: 480,
+            width: window.innerWidth,
+            height: window.innerHeight,
           }}
         />
     </div>
