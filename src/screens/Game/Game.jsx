@@ -13,8 +13,6 @@ export default function Game() {
   const [downright, setDownright] = useState(false);
   const [downleft, setDownleft] = useState(false);
   const { user, score, setScore } = useContext(UserContext);
-  const navigate = useNavigate()
-
   const navigate = useNavigate();
   const halfbeat = 60000 / 81;
 
@@ -55,7 +53,7 @@ export default function Game() {
     setGameOver(!gameOver);
     setScore(600);
     console.log(score);
-  }
+  };
 
   return (
     <div className={styles.container}>
