@@ -1,0 +1,124 @@
+@import "../../Fonts.css";
+
+.podiumContainer {
+  display: flex;
+  margin: 1em auto;
+  width: 80vw;
+  height: 10em;
+  background-color: rgba(76, 201, 240, 0.6);
+  border-radius: 3em 3em 0 0;
+  align-items: flex-end;
+  justify-content: space-around;
+  text-align: center;
+  font-family: var(--second-font-family);
+}
+
+.podiumName {
+  font-size: 2em;
+  margin-bottom: 0;
+}
+
+.podiumScore {
+  margin: 0 auto;
+  padding: auto;
+  font-size: 1.5em;
+}
+
+.firstPlace {
+  background: #ffd700;
+  height: 7em;
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.secondPlace {
+  background: #c0c0c0;
+  height: 4.5em;
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.thirdPlace {
+  background: #cd7f32;
+  height: 2em;
+  width: 25vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.nonPodiumContainer {
+  background-color: black;
+  width: 50vw;
+  height: 50vh;
+  margin: 0 auto;
+  font-size: larger;
+  color: white;
+  font-family: var(--main-font-family);
+  display: flex;
+  justify-content: space-around;
+}
+
+.nonPodiumNames {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.nonPodiumName {
+  margin: 0;
+}
+
+.nonPodiumScores {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.nonPodiumScore {
+  margin: 0;
+}
+
+.nonPodiumRanks {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  height: 100%;
+}
+
+.nonPodiumRank {
+  margin: 0;
+}
+
+.gameButton {
+  display: inline-block;
+  height: 3rem;
+  padding: 0.2em;
+  border: 0.2em solid white;
+  margin: 0 0.3em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #3a0ca3;
+}
+.gameButton:hover {
+  color: #3a0ca3;
+  background-color: white;
+  border: 0.1em solid #3a0ca3;
+}
+
+.options {
+  margin: 2vh;
+  display: flex;
+  justify-content: center;
+  width: 100%;  
+}

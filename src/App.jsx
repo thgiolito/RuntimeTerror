@@ -1,45 +1,36 @@
-import { useState } from 'react'
-import logo from './logo.svg'
-import './App.css'
+import { useState } from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import UserContext from "./contexts/usercontext";
+import Footer from "./components/Footer/Footer";
+import Header from "./components/Header/Header";
+import Accueil from "./screens/Accueil/Accueil";
+import Game from "./screens/Game/Game";
+import Score from "./screens/Score/Score";
+
+import "./App.css";
 
 function App() {
-  const [count, setCount] = useState(0)
-
+  const [ user, setUser ] = useState("");
+  const [ score, setScore ] = useState(0);
+  const handleUserLogin = () => {
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>Hello Vite + React!</p>
-        <p>
-          <button type="button" onClick={() => setCount((count) => count + 1)}>
-            count is: {count}
-          </button>
-        </p>
-        <p>
-          Edit <code>App.jsx</code> and save to test HMR updates.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-          {' | '}
-          <a
-            className="App-link"
-            href="https://vitejs.dev/guide/features.html"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Vite Docs
-          </a>
-        </p>
-      </header>
+      <div className="background"></div>
+      <div className="dark"></div>
+      <BrowserRouter>
+        <UserContext.Provider value={{ user: user, setUser: setUser, score: score, setScore: setScore }}>
+        <Header />
+        <Routes>
+          <Route path="/" element={<Accueil />} />
+          <Route path="/game" element={<Game />} />
+          <Route path="/score" element={<Score />} />
+        </Routes>
+        </UserContext.Provider>
+      </BrowserRouter>
     </div>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -1,0 +1,42 @@
+@import "../../Fonts.css";
+
+.container {
+    color: var(--lighter-blue);
+    text-align: center;
+    font-family: var(--second-font-family);
+}
+
+
+.videoContainer {
+	margin: 0px auto;
+	width: 500px;
+	height: 375px;
+	border: 10px #333 solid;
+}
+.videoElement {
+	width: 500px;
+	height: 375px;
+	background-color: #666;
+}
+
+
+.gameButton {
+  display: inline-block;
+  height: 3rem;
+  padding: 0.2em;
+  border: 0.2em solid white;
+  margin: 0 0.3em 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-weight: 700;
+  color: white;
+  text-align: center;
+  transition: all 0.2s;
+  background-color: #3a0ca3;
+}
+.gameButton:hover {
+  color: #3a0ca3;
+  background-color: white;
+  border: 0.1em solid #3a0ca3;
+}
+

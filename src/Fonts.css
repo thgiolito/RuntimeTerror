@@ -1,0 +1,14 @@
+:root {
+  --main-font-family: "VT323", monospace;
+  --second-font-family: "Noto Sans", sans-serif;
+  --pink: #f72585;
+  --lighter-purple: #b5179e;
+  --light-purple: #7209b7;
+  --purple: #560bad;
+  --blue-purple: #480ca8;
+  --darker-blue: #3a0ca3;
+  --dark-blue: #3f37c9;
+  --blue: #4361ee;
+  --light-blue: #4895ef;
+  --lighter-blue: #4cc9f0;
+}

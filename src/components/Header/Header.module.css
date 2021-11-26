@@ -1,0 +1,37 @@
+@import "../../Fonts.css";
+
+.container {
+  color: var(--pink);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 12vh;
+
+  background: linear-gradient(223deg, #7209b7, #560bad, #480ca8, #3a0ca3);
+  background-size: 240% 240%;
+  animation: gradient-animation 24s ease infinite;
+}
+
+.logo {
+  height: 10vh;
+  width: auto;
+}
+
+.title {
+  color: white;
+  font-family: var(--main-font-family);
+  font-size: 4em;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
