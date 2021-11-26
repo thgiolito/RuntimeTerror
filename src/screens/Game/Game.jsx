@@ -33,7 +33,7 @@ export default function Game() {
   // UU 6
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalID = setInterval(() => {
       let count = chore.shift();
       if (count == 0) {
         setUpright(false);
@@ -97,7 +97,43 @@ export default function Game() {
         navigate("/score");
       }
     }, halfbeat);
+
+    return () => clearInterval(intervalID)
+    
   }, []);
+
+  useEffect(() => {
+    // LeftHand TopRight
+    if((posLeft.x * 1000) >= (window.innerWidth - 200) && (posLeft.y * 1000) <= (window.innerHeight - 200) && (upright || doubleright || doubleup)) {
+      setScore(score + 10)
+    }
+
+    // LeftHand TopLeft
+    if((posLeft.x * 1000) <= (window.innerWidth - 200) && (posLeft.y * 1000) <= (window.innerHeight - 200) && (upleft || doubleleft || doubleup)) {
+      setScore(score + 10)
+    }
+
+    // LeftHand BottomLeft
+    if((posLeft.x * 1000) <= (window.innerWidth - 200) && (posLeft.y * 1000) >= (window.innerHeight - 200) && (downleft || doubleleft)) {
+      setScore(score + 10)
+    }
+
+    // RightHand TopLeft
+    if((posRight.x * 1000) <= (window.innerWidth - 200) && (posRight.y * 1000) <= (window.innerHeight - 200) && (upleft || doubleleft || doubleup)) {
+      setScore(score + 10)
+    }
+
+    // RightHand TopRight
+    if((posRight.x * 1000) >= (window.innerWidth - 200) && (posRight.y * 1000) <= (window.innerHeight - 200) && (upright || doubleright || doubleup)) {
+      setScore(score + 10)
+    }
+
+    // RightHand BottomRight
+    if((posRight.x * 1000) >= (window.innerWidth - 200) && (posRight.y * 1000) >= (window.innerHeight - 200) && (downright || doubleright)) {
+      setScore(score + 10)
+    }
+    
+  }, [posLeft,posRight])
 
   return (
     <div className={styles.container}>
