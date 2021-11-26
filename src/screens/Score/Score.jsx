@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 
 import styles from "./Score.module.css";
 import UserContext from "../../contexts/usercontext";
+import video from '../../assets/videobackgroundscores.mp4';
+
 
 export default function Score() {
   const [podium, setPodium] = useState();
@@ -25,6 +27,7 @@ export default function Score() {
 
   return (
     <div className={styles.container}>
+      <video className={styles.backgroundVideo} src={video} autoPlay loop muted />
       {podium && (
         <div className={styles.podiumContainer}>
           <div>
