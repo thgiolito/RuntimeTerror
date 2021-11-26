@@ -10,7 +10,7 @@ import video from '../../assets/videobackgroundscores.mp4';
 export default function Score() {
   const [podium, setPodium] = useState();
   const [nonPodium, setNonPodium] = useState();
-  const { user, setUser, setChore } = useContext(UserContext);
+  const { user, score, setUser, setChore } = useContext(UserContext);
 
   useEffect(() => {
     setPodium(sampleScore.slice(0, 3));
@@ -24,6 +24,8 @@ export default function Score() {
       3, 2, 1, 5, 1, 5, 3, 4, 0, 4, 2, 1, 0, 6, 6, 6,
     ]);
   }, []);
+
+  console.log(score);
 
   return (
     <div className={styles.jukebox}>
