@@ -2,6 +2,8 @@ import { useEffect, useState, useContext } from "react";
 import sampleScore from "./SampleScore";
 import { Link } from "react-router-dom";
 
+import axios from "axios";
+
 import styles from "./Score.module.css";
 import UserContext from "../../contexts/usercontext";
 
@@ -21,6 +23,15 @@ export default function Score() {
       0, 1, 2, 3, 6, 0, 6, 1, 6, 0, 6, 1, 0, 3, 2, 1, 0, 3, 2, 1, 0, 3, 2, 1, 0,
       3, 2, 1, 5, 1, 5, 3, 4, 0, 4, 2, 1, 0, 6, 6, 6,
     ]);
+  }, []);
+
+  useEffect(() => {
+    const fetchScore = async () =>{
+      const res = axios.get("http://localhost:3001/api/scores")
+      console.log(res);
+    }
+    fetchScore()
+
   }, []);
 
   return (
