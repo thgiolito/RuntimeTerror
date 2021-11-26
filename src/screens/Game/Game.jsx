@@ -15,7 +15,6 @@ export default function Game() {
   const [downleft, setDownleft] = useState(false);
   const [posLeft, setPosLeft] = useState({x: 0, y: 0})
   const [posRight, setPosRight] = useState({x: 0, y: 0})
-  const { user, score, setScore } = useContext(UserContext);
   const [doubleleft, setDoubleleft] = useState(false);
   const [doubleright, setDoubleRight] = useState(false);
   const [doubleup, setDoubleUp] = useState(true);
