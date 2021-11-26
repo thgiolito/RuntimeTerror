@@ -26,7 +26,7 @@ export default function Score() {
   }, []);
 
   return (
-    <div className={styles.container}>
+    <div className={styles.jukebox}>
       <video className={styles.backgroundVideo} src={video} autoPlay loop muted />
       {podium && (
         <div className={styles.podiumContainer}>
@@ -50,6 +50,15 @@ export default function Score() {
           </div>
         </div>
       )}
+
+      <div className={styles.options}>
+        <Link to="/game">
+          <button className={styles.gameButton}>New Game</button>
+        </Link>
+        <Link to="/">
+          <button className={styles.gameButton}>Main menu</button>
+        </Link>
+        </div>
 
       {nonPodium && (
         <div className={styles.nonPodiumContainer}>
@@ -76,14 +85,6 @@ export default function Score() {
           </div>
         </div>
       )}
-      <div className={styles.options}>
-        <Link to="/game">
-          <button className={styles.gameButton}>New Game</button>
-        </Link>
-        <Link to="/">
-          <button className={styles.gameButton}>Main menu</button>
-        </Link>
-      </div>
     </div>
   );
 }
