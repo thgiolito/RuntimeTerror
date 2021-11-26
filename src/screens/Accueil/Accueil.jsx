@@ -10,15 +10,11 @@ import styles from "./Accueil.module.css";
 export default function Accueil() {
 
   const { user, setUser } = useContext(UserContext)
-  const [ name, setName ] = useState("");
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    setUser(e.target.value);
   }
-  const handleClickName = (e) => {
-    e.preventDefault();
-    setUser(name);
-  }
+  
   return (
     <div>
     <div className={styles.container}>
@@ -38,7 +34,7 @@ export default function Accueil() {
       <h4> Enter your name :</h4>
       <form>
       <input onChange={handleNameChange} type="text" placeholder="My name"></input>
-      <button className={styles.gameButton} onClick={handleClickName} type="submit" >Send !</button>
+      
       </form>
       <h3> Welcome {user} ! </h3>
       </div>
