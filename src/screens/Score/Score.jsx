@@ -29,7 +29,7 @@ export default function Score() {
 
   return (
     <div className={styles.jukebox}>
-      <video className={styles.backgroundVideo} src={video} autoPlay loop muted />
+      {/* <video className={styles.backgroundVideo} src={video} autoPlay loop muted /> */}
       {podium && (
         <div className={styles.podiumContainer}>
           <div>

@@ -8,7 +8,7 @@
   height: 103%;
   object-fit: cover;
   transform: translate(-50%, -50%);
-  z-index: -1;
+  z-index: -69;
   overflow: hidden;
 }
 
@@ -136,6 +136,7 @@
   color: #3a0ca3;
   background-color: white;
   border: 0.1em solid #3a0ca3;
+  cursor: pointer;
 }
 
 .options {
