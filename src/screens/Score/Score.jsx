@@ -10,11 +10,19 @@ import video from '../../assets/videobackgroundscores.mp4';
 export default function Score() {
   const [podium, setPodium] = useState();
   const [nonPodium, setNonPodium] = useState();
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser, setChore } = useContext(UserContext);
 
   useEffect(() => {
     setPodium(sampleScore.slice(0, 3));
     setNonPodium(sampleScore.slice(3));
+    setChore([
+      0, 1, 0, 1, 0, 1, 0, 1, 6, 0, 6, 1, 6, 0, 6, 1, 4, 5, 4, 5, 4, 5, 4, 5, 0,
+      1, 2, 3, 0, 1, 2, 3, 6, 0, 6, 1, 6, 0, 6, 1, 0, 3, 2, 1, 0, 3, 2, 1, 0, 3,
+      2, 1, 0, 3, 2, 1, 5, 1, 5, 3, 5, 1, 5, 3, 4, 0, 4, 2, 4, 0, 4, 2, 0, 1, 0,
+      1, 0, 1, 0, 1, 6, 0, 6, 1, 6, 0, 6, 1, 4, 5, 4, 5, 4, 5, 4, 5, 0, 1, 2, 3,
+      0, 1, 2, 3, 6, 0, 6, 1, 6, 0, 6, 1, 0, 3, 2, 1, 0, 3, 2, 1, 0, 3, 2, 1, 0,
+      3, 2, 1, 5, 1, 5, 3, 4, 0, 4, 2, 1, 0, 6, 6, 6,
+    ]);
   }, []);
 
   return (
@@ -47,28 +55,34 @@ export default function Score() {
         <div className={styles.nonPodiumContainer}>
           <div className={styles.nonPodiumRanks}>
             {nonPodium.map((x, i) => (
-              <p className={styles.nonPodiumRank} key={i}>{i + 4}</p>
+              <p className={styles.nonPodiumRank} key={i}>
+                {i + 4}
+              </p>
             ))}
           </div>
           <div className={styles.nonPodiumNames}>
             {nonPodium.map((x, i) => (
-              <p className={styles.nonPodiumName} key={i}>{x.user}</p>
+              <p className={styles.nonPodiumName} key={i}>
+                {x.user}
+              </p>
             ))}
           </div>
           <div className={styles.nonPodiumScores}>
             {nonPodium.map((x, i) => (
-              <p className={styles.nonPodiumScore} key={i}>{x.score}</p>
+              <p className={styles.nonPodiumScore} key={i}>
+                {x.score}
+              </p>
             ))}
           </div>
         </div>
       )}
       <div className={styles.options}>
-      <Link to="/game">
-        <button className={styles.gameButton}>New Game</button>
-      </Link>
-      <Link to="/">
-        <button className={styles.gameButton}>Main menu</button>
-      </Link>
+        <Link to="/game">
+          <button className={styles.gameButton}>New Game</button>
+        </Link>
+        <Link to="/">
+          <button className={styles.gameButton}>Main menu</button>
+        </Link>
       </div>
     </div>
   );

@@ -1,32 +1,74 @@
 @import "../../Fonts.css";
 
 .container {
-    color: var(--light-purple);
+  color: var(--light-purple);
 }
 
-.timer {
-    height: 100px;
-    width: 100px;
-    background-color: white;
+.gameContainerContainer {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  width: 100vw;
+  margin: 12vh 0;
 }
 
-.gameButton {
-    display: inline-block;
-    height: 3rem;
-    padding: 0.2em;
-    border: 0.2em solid white;
-    margin: 0 0.3em 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-weight: 700;
-    color: white;
-    text-align: center;
-    transition: all 0.2s;
-    background-color: #3a0ca3;
+.gameContainerUL {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.gameContainerUR {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.gameContainerDL {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.gameContainerDR {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+.gameContainerUP {
+  height: 600px;
+  width: 600px;
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.squareLight {
+  height: 200px;
+  width: 200px;
+  background: white;
+  border-radius: 50%;
+  animation-name: disappear;
+  animation-duration: 0.7s;
+}
+
+@keyframes disappear {
+  from {
+    background-color: black;
   }
-  .gameButton:hover {
-    color: #3a0ca3;
+  to {
     background-color: white;
-    border: 0.1em solid #3a0ca3;
   }
-  
+}
