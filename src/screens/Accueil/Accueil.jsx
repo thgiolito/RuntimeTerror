@@ -19,7 +19,7 @@ export default function Accueil() {
     <div>
     <div className={styles.container}>
       <h2>Welcome to RUNTIME TERROR !</h2>
-      <p>RUNTIME TERROR it's a music rhythm video game. The game features a hand-shaped controller that the player uses to simulate playing and dancing music.</p>
+      <p>It's a rhythm game. The game features a hand-shaped controller that the player uses to simulate playing and dancing.</p>
      </div>
 
      <div className={styles.container} id="LogoHome" >
@@ -36,11 +36,10 @@ export default function Accueil() {
       <input onChange={handleNameChange} type="text" placeholder="My name"></input>
       
       </form>
-      <h3> Welcome {user} ! </h3>
       </div>
       
       <div className={styles.container} id="camera">
-      <h3>Make sure your camera works</h3>
+      <h3>Welcome{user ? ', ' + user : '' }, make sure your camera works</h3>
       </div>
 
       <div className={styles.videoContainer}>
