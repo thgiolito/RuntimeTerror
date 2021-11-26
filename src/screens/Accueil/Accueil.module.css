@@ -1,55 +1,75 @@
 @import "../../Fonts.css";
 
-
 .main {
-  width:100vw;
+  width: 100vw;
 }
 .logo {
   height: 14rem;
   width: 18rem;
 }
 .container {
-    color: var(--lighter-blue);
-    text-align: center;
-    font-family: var(--second-font-family);   
+  color: white;
+  text-align: center;
+  font-family: var(--main-font-family);
 }
+
+.precamcontainer {
+  color: white;
+  text-align: center;
+  font-family: var(--main-font-family);
+  background-color: var(--blue-purple);
+  padding: 1em;
+}
+
+.precamcontainer p {
+  margin: 0 auto;
+  background-color: var(--blue-purple);
+  font-size: 2em;
+  padding: 0 1em;
+}
+
+.introText {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
 .containerOptions {
   width: 32%;
   height: 10%;
-  margin-top: 3rem;
+  margin-top: 0.345rem;
   background-color: var(--pink);
   border-radius: 15px;
-  border: var(--lighter-blue) 4px solid;
-  color: var(--lighter-blue);
+  border: var(--darker-blue) 4px solid;
+  color: var(--darker-blue);
   text-align: center;
   font-family: var(--second-font-family);
-  opacity: 0.95;  
+  opacity: 0.98;
 }
 .containerText {
   width: 80%;
   margin-top: 2rem;
   background-color: var(--pink);
   border-radius: 15px;
-  color: var(--lighter-blue);
+  color: var(--darker-blue);
   text-align: center;
-  font-family: var(--second-font-family);  
+  font-family: var(--second-font-family);
 }
 .containerForm {
   width: 50rem;
-  height: 2.4rem;
+  height: 3.2rem;
   padding: 4px;
   margin-top: 2.679rem;
   border-radius: 15px;
   color: var(--lighter-blue);
   text-align: center;
-  font-family: var(--second-font-family);  
+  font-family: var(--second-font-family);
   display: flex;
   align-items: center;
-  justify-content: space-around ;
+  justify-content: space-around;
 }
 
 .jukebox {
-  width:100vw;
+  width: 100vw;
   background-image: url("../src/assets/jukeboxvariant.png");
   background-repeat: no-repeat;
   background-size: auto;
@@ -63,45 +83,48 @@
 }
 
 .videoContainer {
-	margin: 0px auto;
-	width: 500px;
-	height: 375px;
-	border: 10px #333 solid;
+  margin: 0px auto;
+  width: 500px;
+  height: 375px;
+  border: 10px #333 solid;
   background-color: white;
-}
-.videoElement {
-	width: 500px;
-	height: 375px;
-	background-color: #666;
 }
 
 .nameForm {
-  width: 12.7rem;
+  width: 11.8rem;
+  margin-left: 1rem;
   border: var(--pink) 2px solid;
   height: 2rem;
-  margin-left: 9.2rem;
   border-radius: 5px;
 }
-.nameButton {
+.gameButton {
   display: inline-block;
   height: 4rem;
-  width: 4rem;
+  width: 12rem;
   padding: 0.1em;
-  border-radius: 15%;
+  border-radius: 1em;
   border: 0.2em solid white;
-  margin-left : 3.3rem;
   box-sizing: border-box;
   text-decoration: none;
+  margin-top: 0.5em;
   font-weight: 400;
+  font-size: 2em;
   color: white;
   text-align: center;
   transition: all 0.2s;
   background-color: #3a0ca3;
 }
-.nameButton:hover {
+.gameButton:hover {
   color: #3a0ca3;
   background-color: white;
   border: 0.1em solid #3a0ca3;
   cursor: pointer;
 }
 
+.webcamoff {
+  position: absolute;
+  width: 500px;
+  height: 375px;
+  background: url("../../assets/reload.png");
+  z-index: 0;
+}
