@@ -1,33 +1,52 @@
 @import "../../Fonts.css";
 
+.backgroundVideo {
+  position: absolute;
+  width: 104%;
+  left: 50%;
+  top: 50%;
+  height: 103%;
+  object-fit: cover;
+  transform: translate(-50%, -50%);
+  z-index: -69;
+  overflow: hidden;
+}
+
 .podiumContainer {
   display: flex;
-  margin: 1em auto;
-  width: 80vw;
-  height: 10em;
-  background-color: rgba(76, 201, 240, 0.6);
-  border-radius: 3em 3em 0 0;
+  margin-top: 11em;
+  margin-bottom: 11em;
+  width: 34em;
+  height: 17em;
+  border-bottom: 0;
+  border: 5px solid black;
+  background-color: var(--lighter-blue);
+  border-top-left-radius: 32em;
+  border-top-right-radius: 32em;
   align-items: flex-end;
   justify-content: space-around;
   text-align: center;
-  font-family: var(--second-font-family);
+  font-family: var(--main-font-family);
 }
 
 .podiumName {
-  font-size: 2em;
+  font: var(--main-font-family);
+  font-size: 3em;
   margin-bottom: 0;
+  color:white;
 }
 
 .podiumScore {
   margin: 0 auto;
   padding: auto;
   font-size: 1.5em;
+
 }
 
 .firstPlace {
   background: #ffd700;
-  height: 7em;
-  width: 25vw;
+  height: 11.5em;
+  width: 6em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,8 +54,8 @@
 
 .secondPlace {
   background: #c0c0c0;
-  height: 4.5em;
-  width: 25vw;
+  height: 8em;
+  width: 6em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -44,8 +63,8 @@
 
 .thirdPlace {
   background: #cd7f32;
-  height: 2em;
-  width: 25vw;
+  height: 5em;
+  width: 6em;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -53,9 +72,10 @@
 
 .nonPodiumContainer {
   background-color: black;
-  width: 50vw;
+  border: var(--darker-blue) 2px solid; 
+  margin-left: 1em;
+  width: 25em;
   height: 50vh;
-  margin: 0 auto;
   font-size: larger;
   color: white;
   font-family: var(--main-font-family);
@@ -69,6 +89,8 @@
   justify-content: space-around;
   height: 100%;
 }
+
+
 
 .nonPodiumName {
   margin: 0;
@@ -98,7 +120,7 @@
 
 .gameButton {
   display: inline-block;
-  height: 3rem;
+  height: 4rem;
   padding: 0.2em;
   border: 0.2em solid white;
   margin: 0 0.3em 0;
@@ -114,11 +136,28 @@
   color: #3a0ca3;
   background-color: white;
   border: 0.1em solid #3a0ca3;
+  cursor: pointer;
 }
 
 .options {
-  margin: 2vh;
-  display: flex;
+  display: inline-flex;
   justify-content: center;
-  width: 100%;  
+  align-items: space-between;
+  margin-left: 1em;
+  width: 30em;
+  height: 8em;
+}
+
+.jukebox {
+  width:100vw;
+  background-image: url("../src/assets/jukeboxvariant.png");
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-x: center;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 0;
+  opacity: 0.8;
 }

@@ -7,6 +7,7 @@ import axios from "axios";
 import styles from "./Score.module.css";
 import UserContext from "../../contexts/usercontext";
 
+
 export default function Score() {
   const [podium, setPodium] = useState([]);
   const [nonPodium, setNonPodium] = useState([]);
@@ -45,9 +46,9 @@ export default function Score() {
       3, 2, 1, 5, 1, 5, 3, 4, 0, 4, 2, 1, 0, 6, 6, 6,
     ]);
   }, []);
-  return (
-    <> {
 
+
+  return (
     <div className={styles.container}>
       {(podium.length !== 0) && (
         <div className={styles.podiumContainer}>
@@ -106,7 +107,5 @@ export default function Score() {
         </Link>
       </div>
     </div>
-    }
-    </>
   );
 }

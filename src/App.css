@@ -7,9 +7,7 @@
     top: 0;
     right: 0;
     opacity: 0.2;
-    z-index:-1;
-    display: flex;
-    justify-content: center;
+    z-index:-2;
 }
 
 
@@ -22,5 +20,21 @@
     right: 0;
     background-color: black;
     background-size: auto;
-    z-index:-2;
+    z-index:-3;
+}
+
+/* .jukebox {
+    background-image: url("../src/assets/jukeboxvariant.png");
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position-x: center;
+    height : 100vh;
+    width: 100vw;
+    position: fixed;
+    z-index: -1;
+    opacity: 0.8;
+} */
+
+.App {
+    z-index: 0;
 }
