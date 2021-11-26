@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import axios from "axios";
 
 import HandDetection from "../../components/HandDetection/HandDetection";
 import beethoven from "../../assets/beethovenvirus.mp3";
@@ -94,7 +95,16 @@ export default function Game() {
       }
 
       if (!chore.length) {
-        navigate("/score");
+      navigate("/score");
+      const postScore = async () => {
+      try {
+        const resp = await axios.post("http://localhost:3001/api/scores", { user:user, score:score}) 
+        console.log(resp.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    postScore();
       }
     }, halfbeat);
 
