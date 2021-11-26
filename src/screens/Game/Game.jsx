@@ -1,41 +1,156 @@
 import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
+import { Link } from "react-router-dom";
 
+import HandDetection from "../../components/HandDetection/HandDetection";
+import beethoven from "../../assets/beethovenvirus.mp3";
 import UserContext from "../../contexts/usercontext";
 
 import styles from "./Game.module.css";
 
 export default function Game() {
-  const [gameOver, setGameOver] = useState(false);
-  const { user, score, setScore } = useContext(UserContext);
-  const navigate = useNavigate()
+  const [upright, setUpright] = useState(false);
+  const [upleft, setUpleft] = useState(false);
+  const [downright, setDownright] = useState(false);
+  const [downleft, setDownleft] = useState(false);
+  const [posLeft, setPosLeft] = useState({x: 0, y: 0})
+  const [posRight, setPosRight] = useState({x: 0, y: 0})
+  const [doubleleft, setDoubleleft] = useState(false);
+  const [doubleright, setDoubleRight] = useState(false);
+  const [doubleup, setDoubleUp] = useState(true);
 
-  // useEffect(() => {
-  //   const timer = setTimeout(() => {
-  //     setCount('Timeout called!');
-  //   }, 1000);
-  //   return () => clearTimeout(timer);
-  // }, []);
+  const { user, score, setScore, chore } = useContext(UserContext);
+
+  const navigate = useNavigate();
+  const halfbeat = 60000 / 81;
+
+  // UL 0
+  // UR 1
+  // DL 2
+  // DR 3
+  // LL 4
+  // RR 5
+  // UU 6
 
   useEffect(() => {
-      if (gameOver) {
-          navigate("/score")
+    setInterval(() => {
+      let count = chore.shift();
+      if (count == 0) {
+        setUpright(false);
+        setDownleft(false);
+        setDownright(false);
+        setDoubleleft(false);
+        setDoubleRight(false);
+        setDoubleUp(false);
+        setUpleft(true);
+      } else if (count == 1) {
+        setUpleft(false);
+        setDownleft(false);
+        setDownright(false);
+        setDoubleleft(false);
+        setDoubleRight(false);
+        setDoubleUp(false);
+        setUpright(true);
+      } else if (count == 2) {
+        setUpleft(false);
+        setUpright(false);
+        setDownright(false);
+        setDoubleleft(false);
+        setDoubleRight(false);
+        setDoubleUp(false);
+        setDownleft(true);
+      } else if (count == 3) {
+        setUpleft(false);
+        setUpright(false);
+        setDownleft(false);
+        setDoubleleft(false);
+        setDoubleRight(false);
+        setDoubleUp(false);
+        setDownright(true);
+      } else if (count == 4) {
+        setUpleft(false);
+        setUpright(false);
+        setDownleft(false);
+        setDownright(false);
+        setDoubleRight(false);
+        setDoubleUp(false);
+        setDoubleleft(true);
+      } else if (count == 5) {
+        setUpleft(false);
+        setUpright(false);
+        setDownleft(false);
+        setDownright(false);
+        setDoubleleft(false);
+        setDoubleUp(false);
+        setDoubleRight(true);
+      } else {
+        setUpleft(false);
+        setUpright(false);
+        setDownleft(false);
+        setDownright(false);
+        setDoubleleft(false);
+        setDoubleRight(false);
+        setDoubleUp(true);
       }
-  }, [gameOver]);
 
-  const handleEndGame = () => {
-    setGameOver(!gameOver);
-    setScore(600);
-    console.log(score);
-  }
+      if (!chore.length) {
+        navigate("/score");
+      }
+    }, halfbeat);
+  }, []);
 
   return (
     <div className={styles.container}>
-      <p> Good luck and have fun, {user} </p>
-      <div className={styles.timer}></div>
-      <button className={styles.gameButton} onClick={handleEndGame}>
-        Simulateur de partie finie
-      </button>
+      <audio src={beethoven} autoPlay />
+      <HandDetection setPosLeftHand={setPosLeft} setPosRightHand={setPosRight}/>
+      <div className={styles.gameContainerContainer}>
+        {upleft && (
+          <div className={styles.gameContainerUL}>
+            <div className={styles.squareLight}></div>
+          </div>
+        )}
+        {upright && (
+          <div className={styles.gameContainerUR}>
+            <div className={styles.squareLight}></div>
+          </div>
+        )}
+        {downleft && (
+          <div className={styles.gameContainerDL}>
+            <div className={styles.squareLight}></div>
+          </div>
+        )}
+        {downright && (
+          <div className={styles.gameContainerDR}>
+            <div className={styles.squareLight}></div>
+          </div>
+        )}
+
+        {doubleleft && (
+          <div className={styles.gameContainerUL}>
+            <div className={styles.squareLight}></div>
+            <div className={styles.squareLight}></div>
+          </div>
+        )}
+
+        {doubleright && (
+          <div className={styles.gameContainerUR}>
+            <div className={styles.squareLight}></div>
+            <div className={styles.squareLight}></div>
+          </div>
+        )}
+
+        {doubleup && (
+          <div className={styles.gameContainerUP}>
+            <div className={styles.squareLight}></div>
+            <div className={styles.squareLight}></div>
+          </div>
+        )}
+      </div>
+
+      <Link to="/score">
+        <button>Simulateur de partie finie</button>
+      </Link>
+
     </div>
   );
 }

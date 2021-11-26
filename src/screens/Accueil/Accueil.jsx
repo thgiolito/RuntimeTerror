@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Webcam from "react-webcam";
 
@@ -11,16 +11,23 @@ import styles from "./Accueil.module.css";
 
 export default function Accueil() {
 
-  const { user, setUser } = useContext(UserContext)
-  const [ name, setName ] = useState("");
+  const { user, setUser, setChore } = useContext(UserContext)
+
+  useEffect(() => {
+    setChore([
+      0, 1, 0, 1, 0, 1, 0, 1, 6, 0, 6, 1, 6, 0, 6, 1, 4, 5, 4, 5, 4, 5, 4, 5, 0,
+      1, 2, 3, 0, 1, 2, 3, 6, 0, 6, 1, 6, 0, 6, 1, 0, 3, 2, 1, 0, 3, 2, 1, 0, 3,
+      2, 1, 0, 3, 2, 1, 5, 1, 5, 3, 5, 1, 5, 3, 4, 0, 4, 2, 4, 0, 4, 2, 0, 1, 0,
+      1, 0, 1, 0, 1, 6, 0, 6, 1, 6, 0, 6, 1, 4, 5, 4, 5, 4, 5, 4, 5, 0, 1, 2, 3,
+      0, 1, 2, 3, 6, 0, 6, 1, 6, 0, 6, 1, 0, 3, 2, 1, 0, 3, 2, 1, 0, 3, 2, 1, 0,
+      3, 2, 1, 5, 1, 5, 3, 4, 0, 4, 2, 1, 0, 6, 6, 6,
+    ]);
+  }, []);
 
   const handleNameChange = (e) => {
-    setName(e.target.value);
+    setUser(e.target.value);
   }
-  const handleClickName = (e) => {
-    e.preventDefault();
-    setUser(name);
-  }
+  
   return (
     <div className={styles.main}>
       <div className={styles.jukebox}>
@@ -38,12 +45,11 @@ export default function Accueil() {
         </div>
         <div className={styles.containerForm}>
         <form>
-          <input className={styles.nameForm} onChange={handleNameChange} type="text" placeholder="My name"></input>
-          <button className={styles.nameButton} onClick={handleClickName} type="submit" >Send !</button>
+          <input className={styles.nameForm} onChange={handleNameChange} type="text" placeholder="Enter your name!"></input>
         </form>
       </div>
       <div className={styles.container} id="camera">
-        <h3>Make sure your camera works</h3>
+      <h3>Welcome{user ? ', ' + user : '' }, make sure your camera works</h3>
       </div>
       <div className={styles.videoContainer}>
         <Webcam audio={false} height={375} width={500} />
@@ -53,5 +59,6 @@ export default function Accueil() {
       </Link>
     </div>
   </div>
+  
   );
 }

@@ -67,6 +67,7 @@
 	width: 500px;
 	height: 375px;
 	border: 10px #333 solid;
+  background-color: white;
 }
 .videoElement {
 	width: 500px;
@@ -101,5 +102,6 @@
   color: #3a0ca3;
   background-color: white;
   border: 0.1em solid #3a0ca3;
+  cursor: pointer;
 }
 
