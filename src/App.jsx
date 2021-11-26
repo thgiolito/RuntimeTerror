@@ -4,7 +4,6 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import background from "./assets/background.png";
 
 import UserContext from "./contexts/usercontext";
-import Footer from "./components/Footer/Footer";
 import Header from "./components/Header/Header";
 import Accueil from "./screens/Accueil/Accueil";
 import Game from "./screens/Game/Game";
