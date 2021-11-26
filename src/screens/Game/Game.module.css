@@ -46,6 +46,15 @@
   align-items: flex-end;
 }
 
+.gameContainerUP {
+  height: 600px;
+  width: 600px;
+  background: black;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
 .squareLight {
   height: 200px;
   width: 200px;
