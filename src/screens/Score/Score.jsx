@@ -8,13 +8,34 @@ import styles from "./Score.module.css";
 import UserContext from "../../contexts/usercontext";
 
 export default function Score() {
-  const [podium, setPodium] = useState();
-  const [nonPodium, setNonPodium] = useState();
-  const { user, setUser, setChore } = useContext(UserContext);
+  const [podium, setPodium] = useState([]);
+  const [nonPodium, setNonPodium] = useState([]);
+  const [fetchedScore, setFetchedScore] = useState([]);
+  const { user, score, setUser, setChore } = useContext(UserContext);
 
+  const postScore = async () => {
+    try {
+      const resp = await axios.post("http://localhost:3001/api/scores", user, score) 
+      console.log(resp.data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  
   useEffect(() => {
-    setPodium(sampleScore.slice(0, 3));
-    setNonPodium(sampleScore.slice(3));
+    const fetchScore = async () =>{
+      const {data} = await axios.get("http://localhost:3001/api/scores")
+      setFetchedScore(data)
+    }
+    
+    fetchScore()
+    console.log(fetchedScore);
+  }, []);
+  
+  useEffect(() => {
+    if (podium) setPodium(fetchedScore.slice(0, 3));
+    if (nonPodium) setNonPodium(fetchedScore.slice(3));
     setChore([
       0, 1, 0, 1, 0, 1, 0, 1, 6, 0, 6, 1, 6, 0, 6, 1, 4, 5, 4, 5, 4, 5, 4, 5, 0,
       1, 2, 3, 0, 1, 2, 3, 6, 0, 6, 1, 6, 0, 6, 1, 0, 3, 2, 1, 0, 3, 2, 1, 0, 3,
@@ -24,19 +45,11 @@ export default function Score() {
       3, 2, 1, 5, 1, 5, 3, 4, 0, 4, 2, 1, 0, 6, 6, 6,
     ]);
   }, []);
-
-  useEffect(() => {
-    const fetchScore = async () =>{
-      const res = axios.get("http://localhost:3001/api/scores")
-      console.log(res);
-    }
-    fetchScore()
-
-  }, []);
-
   return (
+    <> {
+
     <div className={styles.container}>
-      {podium && (
+      {(podium.length !== 0) && (
         <div className={styles.podiumContainer}>
           <div>
             <p className={styles.podiumName}>{podium[1].user}</p>
@@ -59,7 +72,7 @@ export default function Score() {
         </div>
       )}
 
-      {nonPodium && (
+      {(nonPodium.length !== 0) && (
         <div className={styles.nonPodiumContainer}>
           <div className={styles.nonPodiumRanks}>
             {nonPodium.map((x, i) => (
@@ -86,12 +99,14 @@ export default function Score() {
       )}
       <div className={styles.options}>
         <Link to="/game">
-          <button className={styles.gameButton}>New Game</button>
+          <button onClick={postScore} className={styles.gameButton}>New Game</button>
         </Link>
         <Link to="/">
-          <button className={styles.gameButton}>Main menu</button>
+          <button onClick={postScore} className={styles.gameButton}>Main menu</button>
         </Link>
       </div>
     </div>
+    }
+    </>
   );
 }
