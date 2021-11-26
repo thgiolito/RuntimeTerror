@@ -2,6 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 
+import HandDetection from "../../components/HandDetection/HandDetection";
 import beethoven from "../../assets/beethovenvirus.mp3";
 import UserContext from "../../contexts/usercontext";
 
@@ -12,11 +13,15 @@ export default function Game() {
   const [upleft, setUpleft] = useState(false);
   const [downright, setDownright] = useState(false);
   const [downleft, setDownleft] = useState(false);
+  const [posLeft, setPosLeft] = useState({x: 0, y: 0})
+  const [posRight, setPosRight] = useState({x: 0, y: 0})
+  const { user, score, setScore } = useContext(UserContext);
   const [doubleleft, setDoubleleft] = useState(false);
   const [doubleright, setDoubleRight] = useState(false);
   const [doubleup, setDoubleUp] = useState(true);
 
   const { user, score, setScore, chore } = useContext(UserContext);
+
   const navigate = useNavigate();
   const halfbeat = 60000 / 81;
 
@@ -98,6 +103,7 @@ export default function Game() {
   return (
     <div className={styles.container}>
       <audio src={beethoven} autoPlay />
+      <HandDetection setPosLeftHand={setPosLeft} setPosRightHand={setPosRight}/>
       <div className={styles.gameContainerContainer}>
         {upleft && (
           <div className={styles.gameContainerUL}>
@@ -145,6 +151,7 @@ export default function Game() {
       <Link to="/score">
         <button>Simulateur de partie finie</button>
       </Link>
+
     </div>
   );
 }
